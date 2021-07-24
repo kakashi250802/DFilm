@@ -5,7 +5,7 @@ var slides = document.querySelectorAll('.slide');
 
 setInterval(() => {
     var slides = document.querySelectorAll('.slide');
-    if (slides.length == 21) {
+    if (slides.length > 1) {
         return this.slides = slides;
     }
 }, 100)
