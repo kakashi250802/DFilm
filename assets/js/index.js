@@ -42,6 +42,56 @@ function renderData(todo_list) {
     var html = htmls.join('');
     document.querySelector('.slider > .container').insertAdjacentHTML('beforeend', html);
 }
+
+function renderfilmHot(todo_list) {
+    // console.log(todo_list.results)
+    var results = todo_list.results;
+    var htmls = results.map(function(todo_item, index) {
+        return `
+        <!-- film -->
+        <div class="col-2" data-index="${index}">
+            <div class="product-film">
+                <div class="product-film-img">
+                    <div style="background: url('https://image.tmdb.org/t/p/w500/${todo_item.poster_path}');
+                   
+    width: 197px;
+    height: 262px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+                    "></div>
+                </div>
+                <div class="product-film-inf">
+                    <div class="product-btn">
+                        <a href="#" class="btn-flat btn-hover">Xem ngay
+                            <i class="bx bx-play-circle"></i>
+                        </a>
+                    </div>
+                    <div class="product-film-name">
+                        <h3>${todo_item.original_title}</h3>
+                        <p>${todo_item.title}</p>
+                    </div>
+                    <div class="product-film-wiew-rate">
+                        <p class="view-info"><i class='bx bxs-show'></i> &#160;${todo_item.vote_count}</p>
+                        <ul class="star-voted">
+                            <li><a href="#"><i class='bx bxs-star' ></i></a></li>
+                            <li><a href="#"><i class='bx bxs-star' ></i></a></li>
+                            <li><a href="#"><i class='bx bxs-star' ></i></a></li>
+                            <li><a href="#"><i class='bx bxs-star-half' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-star' ></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end film -->
+    `;
+    })
+
+
+    var html = htmls.join('');
+    document.querySelector('.section > .container > .row').insertAdjacentHTML('beforeend', html);
+}
 start();
 console.log(document.querySelectorAll('.slide'))
 let slide_index = 0;
@@ -105,3 +155,12 @@ setInterval(() => {
     showSlide()
 
 }, 3000);
+// scroll left films
+var maxFilmOffset = document.querySelector('.section > .container > .row').offsetWidth;
+// var now_offset = ;
+scrollItem = () => {
+    document.querySelector('.slide-next-flim').addEventListener('click', () => {
+        document.querySelector('.section > .container > .row').scrollLeft += 500;
+    });
+}
+scrollItem();

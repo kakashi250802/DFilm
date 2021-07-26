@@ -6,8 +6,15 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow: auto;
     margin: 0 -10px;
+    transition: all 1s ease 0s;
+    transition-delay: 0.2s;
+}
+
+.row::-webkit-scrollbar {
+    display: none;
 }
 
 .row-revere {
@@ -29,6 +36,10 @@
 
 .col-2 {
     width: 16.66667%;
+}
+
+.col-2-4 {
+    width: 20%;
 }
 
 .col-3 {
@@ -84,6 +95,9 @@
     .col-md-2 {
         width: 16.66667%;
     }
+    .col-md-2-4 {
+        width: 20%
+    }
     .col-md-3 {
         width: 25%;
     }
@@ -128,6 +142,9 @@
     }
     .col-sm-2 {
         width: 16.66667%;
+    }
+    .col-sm-2-4 {
+        width: 20%
     }
     .col-sm-3 {
         width: 25%;

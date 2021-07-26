@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    background-color: var(--black);
 }
 
 a {
@@ -34,6 +35,7 @@ li {
     --top-header-size: 30px;
     --mid-header-size: 80px;
     --bottom-header-size: 45px;
+    --film-name-color: #ff8040;
 }
 
 input {
@@ -441,4 +443,141 @@ input {
 
 .slider:hover .slide-prev {
     left: 50px;
+}
+
+.slide-next-flim {
+    position: relative;
+}
+
+.slide-prev-flim {
+    position: relative;
+}
+
+.slide-prev-flim,
+.slide-next-flim {
+    /* scroll-behavior: smooth; */
+    left: unset;
+    right: unset;
+    top: unset;
+    transform: unset;
+    border-radius: unset;
+    background-color: unset;
+    color: var(--white);
+}
+
+.slide-prev-flim:hover,
+.slide-next-flim:hover {
+    color: var(--black);
+}
+
+.control-film {
+    display: flex;
+}
+
+.section>.container {
+    padding: 40px 0;
+    max-width: 1170px;
+    margin: auto;
+}
+
+.section-header {
+    font-size: 20px;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-film {
+    padding-top: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-film-img {
+    overflow: hidden;
+}
+
+.product-film-img>div {
+    transition: transform 1s ease-in-out;
+}
+
+.product-btn {
+    text-align: center;
+}
+
+.product-btn>a {
+    padding: 10px 20px;
+}
+
+.product-film-img:hover div {
+    transform: scale(1.1);
+}
+
+.product-film-inf {
+    color: var(--text-color);
+}
+
+.product-film-inf>.product-btn {
+    opacity: 0;
+    visibility: hidden;
+    inset: 0;
+    position: absolute;
+    /* top: 60%; */
+    transform: translateY(81%);
+    transition: transform 0.3s ease-in-out 0.1s, opacity 0.3s;
+}
+
+.product-film:hover .product-btn {
+    transform: translateY(60%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-film-name>h3,
+.product-film-name>p {
+    padding-top: 4px;
+    font-size: 16px;
+    color: var(--film-name-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.product-film-name>p {
+    color: var(--text-color);
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.product-film-wiew-rate {
+    padding-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.product-film-wiew-rate>.view-info>i {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.star-voted {
+    display: flex;
+}
+
+.star-voted i {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.view-info {
+    display: flex;
+    align-items: center;
 }
