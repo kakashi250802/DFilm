@@ -139,26 +139,4 @@ setInterval(() => {
     nextSlide()
     showSlide()
 
-}, 3000);
-// scroll left films
-// var maxFilmOffset = document.querySelector('.section > .container > .row').offsetWidth;
-// var now_offset = ;
-scrollItem = () => {
-        document.querySelector('.slide-next-flim').addEventListener('click', () => {
-            var a = 0;
-
-
-            for (var i = 0; i <= 5; i += 0.01) {
-
-                document.querySelector('.section > .container > .row').scrollLeft += i;
-                console.log(
-                    document.querySelector('.section > .container > .row').scrollLeft
-
-                )
-            }
-        });
-        document.querySelector('.slide-prev-flim').addEventListener('click', () => {
-            document.querySelector('.section > .container > .row').scrollLeft -= 500;
-        });
-    }
-    // scrollItem();
+}, 4000);
