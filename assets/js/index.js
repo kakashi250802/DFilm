@@ -46,51 +46,41 @@ function renderData(todo_list) {
 function renderfilmHot(todo_list) {
     // console.log(todo_list.results)
     var results = todo_list.results;
-    var htmls = results.map(function(todo_item, index) {
+    var htmls = results.map(function(todo_item) {
         return `
-        <!-- film -->
-        <div class="col-2" data-index="${index}">
-            <div class="product-film">
-                <div class="product-film-img">
-                    <div style="background: url('https://image.tmdb.org/t/p/w500/${todo_item.poster_path}');
-                   
-    width: 197px;
-    height: 262px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-                    "></div>
+        <!-- MOVIE ITEM -->
+        <a href="#" class="movie-item">
+            <img src="https://image.tmdb.org/t/p/w500/${todo_item.poster_path}" alt="">
+            <div class="movie-item-content">
+                <div class="movie-item-title">
+                ${todo_item.original_title}
                 </div>
-                <div class="product-film-inf">
-                    <div class="product-btn">
-                        <a href="#" class="btn-flat btn-hover">Xem ngay
-                            <i class="bx bx-play-circle"></i>
-                        </a>
+                <div class="movie-infos">
+                    <div class="movie-info">
+                        <i class="bx bxs-star"></i>
+                        <span>${todo_item.vote_average}</span>
                     </div>
-                    <div class="product-film-name">
-                        <h3>${todo_item.original_title}</h3>
-                        <p>${todo_item.title}</p>
+                    <div class="movie-info">
+                    <i class='bx bxs-show'></i>
+                        <span>${todo_item.popularity}</span>
                     </div>
-                    <div class="product-film-wiew-rate">
-                        <p class="view-info"><i class='bx bxs-show'></i> &#160;${todo_item.vote_count}</p>
-                        <ul class="star-voted">
-                            <li><a href="#"><i class='bx bxs-star' ></i></a></li>
-                            <li><a href="#"><i class='bx bxs-star' ></i></a></li>
-                            <li><a href="#"><i class='bx bxs-star' ></i></a></li>
-                            <li><a href="#"><i class='bx bxs-star-half' ></i></a></li>
-                            <li><a href="#"><i class='bx bx-star' ></i></a></li>
-                        </ul>
+                    <div class="movie-info">
+                        <span>HD</span>
+                    </div>
+                    <div class="movie-info">
+                        <span>16+</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- end film -->
+        </a>
+        <!-- END MOVIE ITEM -->
+
     `;
     })
 
 
     var html = htmls.join('');
-    document.querySelector('.section > .container > .row').insertAdjacentHTML('beforeend', html);
+    document.querySelector('#popular-movies').insertAdjacentHTML('beforeend', html);
 }
 start();
 console.log(document.querySelectorAll('.slide'))
@@ -156,11 +146,24 @@ setInterval(() => {
 
 }, 3000);
 // scroll left films
-var maxFilmOffset = document.querySelector('.section > .container > .row').offsetWidth;
+// var maxFilmOffset = document.querySelector('.section > .container > .row').offsetWidth;
 // var now_offset = ;
 scrollItem = () => {
-    document.querySelector('.slide-next-flim').addEventListener('click', () => {
-        document.querySelector('.section > .container > .row').scrollLeft += 500;
-    });
-}
-scrollItem();
+        document.querySelector('.slide-next-flim').addEventListener('click', () => {
+            var a = 0;
+
+
+            for (var i = 0; i <= 5; i += 0.01) {
+
+                document.querySelector('.section > .container > .row').scrollLeft += i;
+                console.log(
+                    document.querySelector('.section > .container > .row').scrollLeft
+
+                )
+            }
+        });
+        document.querySelector('.slide-prev-flim').addEventListener('click', () => {
+            document.querySelector('.section > .container > .row').scrollLeft -= 500;
+        });
+    }
+    // scrollItem();
