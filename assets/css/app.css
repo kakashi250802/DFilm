@@ -3,6 +3,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -673,13 +674,6 @@ a.movie-item:hover {
 
 .owl-nav button:hover i {
     color: var(--primary-color);
-}
-
-.top-down {
-    transform: translateY(-50px);
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s ease-in-out;
 }
 
 .owl-item.active .top-down {

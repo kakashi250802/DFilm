@@ -64,12 +64,7 @@ function renderfilmHot(todo_list) {
                     <i class='bx bxs-show'></i>
                         <span>${todo_item.popularity}</span>
                     </div>
-                    <div class="movie-info">
-                        <span>HD</span>
-                    </div>
-                    <div class="movie-info">
-                        <span>16+</span>
-                    </div>
+
                 </div>
             </div>
         </a>
